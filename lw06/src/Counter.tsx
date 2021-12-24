@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import ButtonReset from './ButtonReset';
 import { useState } from 'react'; // Подключаем ссылку на useState.
 interface CounterProps {
     start: number;
@@ -11,10 +12,15 @@ var Counter = (props: CounterProps) => {
     var handleIncrease = () => {
         setCount(count + props.step);
     };
+    var ResetCount = () => {
+        setCount(props.start);
+    };
     return (
         <div>
             <div>Значение счётчика: {count}.</div>
             <Button text='Прибавить step' onClick={handleIncrease}/>
+            {/*Доп задание кнопка сбрасывает значение до начального*/}
+            <ButtonReset text="Сбросить до start" onClick={ResetCount}/>
         </div>
     );
 };
